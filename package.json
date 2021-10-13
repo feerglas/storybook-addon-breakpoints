@@ -1,7 +1,7 @@
 {
   "name": "storybook-addon-kit",
   "version": "0.0.0",
-  "description": "everything you need to build a Storybook addon",
+  "description": "Storybook addon to display breakpoint sizes and their according name mappings",
   "keywords": [
     "storybook-addons",
     "style",
@@ -9,9 +9,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/storybookjs/storybook-addon-kit"
+    "url": "https://github.com/feerglas/storybook-addon-breakpoints"
   },
-  "author": "winkerVSbecks",
+  "author": "Yves Tscherry",
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
