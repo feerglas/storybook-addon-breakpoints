@@ -1,6 +1,6 @@
 {
   "name": "storybook-addon-breakpoints",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Storybook addon to display breakpoint sizes and their according name mappings",
   "keywords": [
     "storybook-addons",
