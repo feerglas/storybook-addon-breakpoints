@@ -81,7 +81,7 @@
     "access": "public"
   },
   "storybook": {
-    "displayName": "Addon Kit",
+    "displayName": "Show Breakpoints in Storybook",
     "supportedFrameworks": [
       "react",
       "vue",
