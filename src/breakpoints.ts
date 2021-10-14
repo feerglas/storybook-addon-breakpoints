@@ -100,7 +100,6 @@ const getUserOptions = (params: any) => {
   // set debounce
   if (Object.keys(options).includes(config.optionKeys.debounce)) {
     storybookAddonBreakpointsDebounce = options[config.optionKeys.debounce];
-    console.log(storybookAddonBreakpointsDebounce);
   }
 };
 
