@@ -49,7 +49,6 @@
     "storybook": "start-storybook -p 6006",
     "start": "env NODE_ENV=devonly concurrently \"yarn build:watch\" \"yarn storybook -- --no-manager-cache --quiet\"",
     "build-storybook": "build-storybook",
-    "release": "yarn lint && yarn build && auto shipit",
     "prepare": "husky install"
   },
   "devDependencies": {
