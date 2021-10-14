@@ -2,6 +2,7 @@ import { config } from '../breakpoints';
 
 const parameters: any = {};
 
+// create main options object
 parameters[config.optionKeys.main] = {};
 
 // set breakpoint names option
