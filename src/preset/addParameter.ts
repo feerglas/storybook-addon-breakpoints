@@ -1,9 +1,9 @@
 /*
 Example options:
 
-breakpointNames: {
+breakpoints: {
   debounceTimeout: 200,
-  nameMap: {
+  breakpointNames: {
     'small': '500',
     'large': '1500',
     'medium': '1000'

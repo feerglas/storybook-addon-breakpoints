@@ -68,13 +68,13 @@ The keys of the object `breakpointNames` are the names that we show in the overl
 
 ### Debouncing
 
-It can be ressource intensive to make the calculations to display the breakpoints on every pixel resize. To improve performance, we support debouncing on window resize.
+It can be ressource intensive to make the calculations to display the breakpoints on every pixel resize. To improve performance, we support debouncing on window resize. Use to `debounceTimeout` key as follows:
 
 ```js
 export const parameters = {
   breakpoints: {
     breakpointNames: {...},
-    debounce: 200
+    debounceTimeout: 200
   }
 };
 ```
