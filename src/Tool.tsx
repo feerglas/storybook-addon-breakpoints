@@ -4,22 +4,22 @@ import { Icons, IconButton } from "@storybook/components";
 import { TOOL_ID } from "./constants";
 
 export const Tool = () => {
-  const [{ myAddon }, updateGlobals] = useGlobals();
+  const [{ breakpointsActive }, updateGlobals] = useGlobals();
 
-  const toggleMyTool = useCallback(
+  const toggleBreakpoints = useCallback(
     () =>
       updateGlobals({
-        myAddon: myAddon ? undefined : true,
+        breakpointsActive: !breakpointsActive,
       }),
-    [myAddon]
+    [breakpointsActive]
   );
 
   return (
     <IconButton
       key={TOOL_ID}
-      active={myAddon}
-      title="Enable my addon"
-      onClick={toggleMyTool}
+      active={breakpointsActive}
+      title="Display Breakpoints"
+      onClick={toggleBreakpoints}
     >
       {/*
         Checkout https://next--storybookjs.netlify.app/official-storybook/?path=/story/basics-icon--labels
