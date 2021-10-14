@@ -1,3 +1,15 @@
+# v0.0.6 (Thu Oct 14 2021)
+
+#### 🐛 Bug Fix
+
+- Feat/prepare first release [#1](https://github.com/feerglas/storybook-addon-breakpoints/pull/1) ([@feerglas](https://github.com/feerglas))
+
+#### Authors: 1
+
+- Yves Tscherry ([@feerglas](https://github.com/feerglas))
+
+---
+
 # v0.0.5 (Thu Oct 14 2021)
 
 #### ⚠️ Pushed to `main`
