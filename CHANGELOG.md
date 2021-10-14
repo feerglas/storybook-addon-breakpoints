@@ -1,3 +1,16 @@
+# v0.0.4 (Thu Oct 14 2021)
+
+#### ⚠️ Pushed to `main`
+
+- fix: only define default options in dev mode ([@feerglas](https://github.com/feerglas))
+- chore: remove log ([@feerglas](https://github.com/feerglas))
+
+#### Authors: 1
+
+- Yves Tscherry ([@feerglas](https://github.com/feerglas))
+
+---
+
 # v0.0.2 (Thu Oct 14 2021)
 
 #### ⚠️ Pushed to `main`
