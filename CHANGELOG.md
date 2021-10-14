@@ -1,3 +1,11 @@
+## [0.0.7](https://github.com/feerglas/storybook-addon-breakpoints/compare/v0.0.6...v0.0.7) (2021-10-14)
+
+
+### Bug Fixes
+
+* correct branch name ([13b3342](https://github.com/feerglas/storybook-addon-breakpoints/commit/13b3342b07c2b7edcf948a5ef9fca50047e1e8d1))
+* fix semantic release config ([031562a](https://github.com/feerglas/storybook-addon-breakpoints/commit/031562a7abfda0132bc0bd939060dca4ad87cce5))
+
 # v0.0.6 (Thu Oct 14 2021)
 
 #### 🐛 Bug Fix
