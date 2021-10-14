@@ -15,7 +15,7 @@ import { config } from '../breakpoints';
 
 const parameters: any = {};
 
-if (process.env.NODE_ENV === 'development') {
+if (process.env.NODE_ENV === 'devonly') {
 
   // create main options object
   parameters[config.optionKeys.main] = {};
@@ -28,7 +28,7 @@ if (process.env.NODE_ENV === 'development') {
   };
 
   // set debounce option
-  parameters[config.optionKeys.main][config.optionKeys.debounce] = 200;
+  parameters[config.optionKeys.main][config.optionKeys.debounce] = 0;
 
 }
 
