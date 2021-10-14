@@ -1,4 +1,4 @@
-import { OptionsControl } from "@storybook/components";
+import { PARAM_KEY } from './constants';
 
 export const config = {
   classes: {
@@ -7,7 +7,6 @@ export const config = {
     name: 'storybook-addon-breakpoints__name'
   },
   optionKeys: {
-    main: 'ytBreakpoints',
     debounce: 'debounceTimeout',
     breakpointNames: 'breakpointNames'
   }
@@ -52,11 +51,11 @@ const getUserBreakpointNames = (params: any) => {
     return;
   }
 
-  if (!Object.keys(params).includes(config.optionKeys.main)) {
+  if (!Object.keys(params).includes(PARAM_KEY)) {
     return;
   }
 
-  const options = params[config.optionKeys.main];
+  const options = params[PARAM_KEY];
 
   if (!Object.keys(options).includes(config.optionKeys.breakpointNames)) {
     return;
@@ -91,11 +90,11 @@ const getUserOptions = (params: any) => {
     return;
   }
 
-  if (!Object.keys(params).includes(config.optionKeys.main)) {
+  if (!Object.keys(params).includes(PARAM_KEY)) {
     return;
   }
 
-  const options = params[config.optionKeys.main];
+  const options = params[PARAM_KEY];
 
   // set debounce
   if (Object.keys(options).includes(config.optionKeys.debounce)) {
