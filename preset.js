@@ -1,5 +1,9 @@
 function config(entry = []) {
-  return [...entry, require.resolve("./dist/esm/preset/preview")];
+  return [
+    ...entry,
+    require.resolve("./dist/esm/preset/preview"),
+    require.resolve("./dist/esm/preset/addParameter"),
+  ];
 }
 
 function managerEntries(entry = []) {
