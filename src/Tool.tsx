@@ -25,7 +25,7 @@ export const Tool = () => {
         Checkout https://next--storybookjs.netlify.app/official-storybook/?path=/story/basics-icon--labels
         for the full list of icons
       */}
-      <Icons icon="lightning" />
+      <Icons icon="browser" />
     </IconButton>
   );
 };
