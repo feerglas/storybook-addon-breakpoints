@@ -30,4 +30,3 @@ export const withGlobals = (StoryFn: StoryFunction, context: StoryContext) => {
 
   return StoryFn();
 };
-
