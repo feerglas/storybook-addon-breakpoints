@@ -48,9 +48,7 @@
     "storybook": "start-storybook -p 6006",
     "start": "env NODE_ENV=devonly concurrently \"yarn build:watch\" \"yarn storybook -- --no-manager-cache --quiet\"",
     "build-storybook": "build-storybook",
-    "prerelease": "zx scripts/prepublish-checks.mjs",
-    "release": "yarn lint && yarn build && auto shipit",
-    "eject-ts": "zx scripts/eject-typescript.mjs"
+    "release": "yarn lint && yarn build && auto shipit"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
