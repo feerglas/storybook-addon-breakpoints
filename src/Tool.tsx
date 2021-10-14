@@ -1,6 +1,7 @@
 import React, { useCallback } from "react";
 import { useGlobals } from "@storybook/api";
-import { Icons, IconButton } from "@storybook/components";
+import { IconButton } from "@storybook/components";
+import BreakpointIcon from './components/BreakpointIcon';
 import { TOOL_ID } from "./constants";
 
 export const Tool = () => {
@@ -21,11 +22,8 @@ export const Tool = () => {
       title="Display Breakpoints"
       onClick={toggleBreakpoints}
     >
-      {/*
-        Checkout https://next--storybookjs.netlify.app/official-storybook/?path=/story/basics-icon--labels
-        for the full list of icons
-      */}
-      <Icons icon="browser" />
+      
+      <BreakpointIcon />
     </IconButton>
   );
 };
