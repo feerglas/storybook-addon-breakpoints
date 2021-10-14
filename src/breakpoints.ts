@@ -7,9 +7,9 @@ export const config = {
     name: 'storybook-addon-breakpoints__name'
   },
   optionKeys: {
-    main: 'breakpointNames',
+    main: 'ytBreakpoints',
     debounce: 'debounceTimeout',
-    breakpointNames: 'nameMap'
+    breakpointNames: 'breakpointNames'
   }
 };
 
@@ -117,8 +117,14 @@ const createWrapper = (appendTo: Element) => {
   storybookAddonBreakpointsWrapper.style.setProperty('right', '0');
   storybookAddonBreakpointsWrapper.style.setProperty('bottom', '0');
   storybookAddonBreakpointsWrapper.style.setProperty('left', 'auto');
-  storybookAddonBreakpointsWrapper.style.setProperty('width', '10rem');
-  storybookAddonBreakpointsWrapper.style.setProperty('background', 'green');
+  storybookAddonBreakpointsWrapper.style.setProperty('width', 'auto');
+  storybookAddonBreakpointsWrapper.style.setProperty('background', 'black');
+  storybookAddonBreakpointsWrapper.style.setProperty('border-top', '2px solid white');
+  storybookAddonBreakpointsWrapper.style.setProperty('border-left', '2px solid white');
+  storybookAddonBreakpointsWrapper.style.setProperty('color', 'white');
+  storybookAddonBreakpointsWrapper.style.setProperty('font-family', 'monospace');
+  storybookAddonBreakpointsWrapper.style.setProperty('padding', '.5rem 1rem');
+  storybookAddonBreakpointsWrapper.style.setProperty('text-align', 'center');
   appendTo.appendChild(storybookAddonBreakpointsWrapper);
 };
 
@@ -129,6 +135,8 @@ const createPixelElement = () => {
 
   storybookAddonBreakpointsPixel = document.createElement('span');
   storybookAddonBreakpointsPixel.classList.add(config.classes.pixel);
+  storybookAddonBreakpointsPixel.style.setProperty('display', 'block');
+  storybookAddonBreakpointsPixel.style.setProperty('color', 'rgba(255,255,255,.7)');
   storybookAddonBreakpointsWrapper.appendChild(storybookAddonBreakpointsPixel);
 };
 
@@ -139,6 +147,7 @@ const createNameElement = () => {
 
   storybookAddonBreakpointsName = document.createElement('span');
   storybookAddonBreakpointsName.classList.add(config.classes.name);
+  storybookAddonBreakpointsName.style.setProperty('display', 'block');
   storybookAddonBreakpointsWrapper.appendChild(storybookAddonBreakpointsName);
 };
 
