@@ -1,6 +1,2 @@
-- auto releases??
-- meta for storybook catalog
 - icon for package.json
-- activate dependabot
 - upper range? latest entry is 1500. we should make a placeholder here, like ~
-- setup sponsor button
