@@ -1,3 +1,16 @@
+# v0.0.5 (Thu Oct 14 2021)
+
+#### ⚠️ Pushed to `main`
+
+- chore: wso ([@feerglas](https://github.com/feerglas))
+- fix: only set default options in devmode ([@feerglas](https://github.com/feerglas))
+
+#### Authors: 1
+
+- Yves Tscherry ([@feerglas](https://github.com/feerglas))
+
+---
+
 # v0.0.4 (Thu Oct 14 2021)
 
 #### ⚠️ Pushed to `main`
