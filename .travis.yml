@@ -1,0 +1,15 @@
+os: linux
+dist: focal
+group: edge
+language: node_js
+arch: arm64-graviton2
+virt: lxd
+jobs:
+  include:
+    - stage: build and deploy storybook addon breakpoints
+      script:
+      - yarn lint || travis_terminate 1
+      - yarn build || travis_terminate 1
+
+      after_success:
+      - npm run semantic-release || travis_terminate 1
