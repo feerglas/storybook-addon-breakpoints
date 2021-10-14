@@ -76,7 +76,7 @@ const getBreakpointNameForWidth = (width: number) => {
     const key = entry[0]
     const value = parseInt(entry[1]);
 
-    if (width < value) {
+    if (width <= value) {
       breakpointName = key;
     }
   });
