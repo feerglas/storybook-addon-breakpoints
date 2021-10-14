@@ -4,12 +4,12 @@ export const config = {
   classes: {
     wrapper: 'storybook-addon-breakpoints',
     pixel: 'storybook-addon-breakpoints__pixel',
-    name: 'storybook-addon-breakpoints__name'
+    name: 'storybook-addon-breakpoints__name',
   },
   optionKeys: {
     debounce: 'debounceTimeout',
-    breakpointNames: 'breakpointNames'
-  }
+    breakpointNames: 'breakpointNames',
+  },
 };
 
 let storybookAddonBreakpointsWrapper: HTMLDivElement;
@@ -21,29 +21,32 @@ let storybookAddonBreakpointsDebounce = 200;
 // --- HELPERS
 
 function debounce(func: Function, immediate: boolean) {
-
   let timeout: ReturnType<typeof setTimeout>;
 
-  return function() {
-      const context = this
-      const args = arguments;
-      const later = function() {
-          timeout = null;
-          if (!immediate) {
-            func.apply(context, args);
-          }
-      };
-      const callNow = immediate && !timeout;
+  function debounceFN() {
+    const context = this;
+    const args = arguments;
 
-      clearTimeout(timeout);
+    function later() {
+      timeout = null;
+      if (!immediate) {
+        func.apply(context, args);
+      }
+    }
 
-      timeout = setTimeout(later, storybookAddonBreakpointsDebounce);
+    const callNow = immediate && !timeout;
 
-      if (callNow) {
-        func.apply(context, args)
-      };
-  };
-};
+    clearTimeout(timeout);
+
+    timeout = setTimeout(later, storybookAddonBreakpointsDebounce);
+
+    if (callNow) {
+      func.apply(context, args);
+    }
+  }
+
+  return debounceFN;
+}
 
 // --- BREAKPOINT NAMES
 const getUserBreakpointNames = (params: any) => {
@@ -62,7 +65,9 @@ const getUserBreakpointNames = (params: any) => {
   }
 
   const nameMap = options[config.optionKeys.breakpointNames];
-  storybookAddonBreakpointsNamesMap = Object.entries(nameMap).sort((a:[string, string], b:[string, string]) => parseInt(b[1]) - parseInt(a[1]));
+  storybookAddonBreakpointsNamesMap = Object
+    .entries(nameMap)
+    .sort((a:[string, string], b:[string, string]) => (parseInt(b[1], 10) - parseInt(a[1], 10)));
 };
 
 const getBreakpointNameForWidth = (width: number) => {
@@ -73,8 +78,8 @@ const getBreakpointNameForWidth = (width: number) => {
   let breakpointName = '';
 
   storybookAddonBreakpointsNamesMap.forEach((entry: any) => {
-    const key = entry[0]
-    const value = parseInt(entry[1]);
+    const key = entry[0];
+    const value = parseInt(entry[1], 10);
 
     if (width <= value) {
       breakpointName = key;
@@ -158,7 +163,7 @@ const resizeCallback = (evt?: Event) => {
   if (!evt) {
     target = window;
   } else {
-    target = evt.currentTarget as Window
+    target = evt.currentTarget as Window;
   }
 
   const width = target.innerWidth;
@@ -169,11 +174,11 @@ const resizeCallback = (evt?: Event) => {
 
   storybookAddonBreakpointsPixel.innerText = `${width}px`;
   storybookAddonBreakpointsName.innerText = getBreakpointNameForWidth(width);
-}
+};
 
 const handleResize = debounce(
   resizeCallback,
-  false
+  false,
 );
 
 const addEventListener = () => {
@@ -189,7 +194,7 @@ const removeEventListener = () => {
 export const showAddon = (root: Element, params: any) => {
   getUserBreakpointNames(params);
   getUserOptions(params);
-  createWrapper(root)
+  createWrapper(root);
   createPixelElement();
   createNameElement();
 

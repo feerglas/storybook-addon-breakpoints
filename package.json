@@ -40,7 +40,7 @@
     "prebuild": "yarn clean",
     "build": "concurrently \"yarn buildBabel\" \"yarn buildTsc\"",
     "build:watch": "concurrently \"yarn buildBabel:esm -- --watch\" \"yarn buildTsc -- --watch\"",
-    "lint": "eslint --ignore-path .gitignore --ext .js,.tsx .",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.tsx,.ts .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "start": "env NODE_ENV=devonly concurrently \"yarn build:watch\" \"yarn storybook -- --no-manager-cache --quiet\"",
