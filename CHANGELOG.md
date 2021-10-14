@@ -2,6 +2,33 @@
 
 #### ⚠️ Pushed to `main`
 
+- docs: add comment ([@feerglas](https://github.com/feerglas))
+- refactor: use options keys from config ([@feerglas](https://github.com/feerglas))
+- refactor: use options keys as variables instead of strings, make debounce configurable ([@feerglas](https://github.com/feerglas))
+- feat: add seperate file to handle logic for displaying breakpoint name ([@feerglas](https://github.com/feerglas))
+- feat: add default parameters ([@feerglas](https://github.com/feerglas))
+- fix: restrict addon to docs only ([@feerglas](https://github.com/feerglas))
+- refactor: remove logic after moving it to new file ([@feerglas](https://github.com/feerglas))
+- feat: import parameter ([@feerglas](https://github.com/feerglas))
+- chore: remove obsolete parameter ([@feerglas](https://github.com/feerglas))
+- feat: add basic functionality to toggle breakpoints overlay ([@feerglas](https://github.com/feerglas))
+- fix: set correct name, rename methods ([@feerglas](https://github.com/feerglas))
+- fix: set correct name ([@feerglas](https://github.com/feerglas))
+- chore: remove unneccessary constants ([@feerglas](https://github.com/feerglas))
+- chore: remove unneccessary files ([@feerglas](https://github.com/feerglas))
+- chore: remove obsolete code ([@feerglas](https://github.com/feerglas))
+- chore: remove unnecessary files ([@feerglas](https://github.com/feerglas))
+
+#### Authors: 1
+
+- Yves Tscherry ([@feerglas](https://github.com/feerglas))
+
+---
+
+# v0.0.2 (Thu Oct 14 2021)
+
+#### ⚠️ Pushed to `main`
+
 - refactor: use options keys from config ([@feerglas](https://github.com/feerglas))
 - refactor: use options keys as variables instead of strings, make debounce configurable ([@feerglas](https://github.com/feerglas))
 - feat: add seperate file to handle logic for displaying breakpoint name ([@feerglas](https://github.com/feerglas))
