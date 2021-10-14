@@ -1,19 +1,27 @@
-const config = {
+import { OptionsControl } from "@storybook/components";
+
+export const config = {
   classes: {
     wrapper: 'storybook-addon-breakpoints',
     pixel: 'storybook-addon-breakpoints__pixel',
     name: 'storybook-addon-breakpoints__name'
+  },
+  optionKeys: {
+    main: 'breakpointNames',
+    debounce: 'debounceTimeout',
+    breakpointNames: 'nameMap'
   }
 };
 
 let storybookAddonBreakpointsWrapper: HTMLDivElement;
 let storybookAddonBreakpointsPixel: HTMLSpanElement;
 let storybookAddonBreakpointsName: HTMLSpanElement;
-let storybookAddonBreakpointNamesMap: any;
+let storybookAddonBreakpointsNamesMap: any;
+let storybookAddonBreakpointsDebounce = 200;
 
 // --- HELPERS
 
-function debounce(func: Function, wait: number, immediate: boolean) {
+function debounce(func: Function, immediate: boolean) {
 
   let timeout: ReturnType<typeof setTimeout>;
 
@@ -30,7 +38,7 @@ function debounce(func: Function, wait: number, immediate: boolean) {
 
       clearTimeout(timeout);
 
-      timeout = setTimeout(later, wait);
+      timeout = setTimeout(later, storybookAddonBreakpointsDebounce);
 
       if (callNow) {
         func.apply(context, args)
@@ -39,26 +47,33 @@ function debounce(func: Function, wait: number, immediate: boolean) {
 };
 
 // --- BREAKPOINT NAMES
-const setBreakpointNames = (params: any) => {
+const getUserBreakpointNames = (params: any) => {
   if (!params) {
     return;
   }
 
-  if (!Object.keys(params).includes('breakpointNames')) {
+  if (!Object.keys(params).includes(config.optionKeys.main)) {
     return;
   }
 
-  storybookAddonBreakpointNamesMap = Object.entries(params.breakpointNames).sort((a:[string, string], b:[string, string]) => parseInt(b[1]) - parseInt(a[1]));
-}
+  const options = params[config.optionKeys.main];
+
+  if (!Object.keys(options).includes(config.optionKeys.breakpointNames)) {
+    return;
+  }
+
+  const nameMap = options[config.optionKeys.breakpointNames];
+  storybookAddonBreakpointsNamesMap = Object.entries(nameMap).sort((a:[string, string], b:[string, string]) => parseInt(b[1]) - parseInt(a[1]));
+};
 
 const getBreakpointNameForWidth = (width: number) => {
-  if (!storybookAddonBreakpointNamesMap) {
+  if (!storybookAddonBreakpointsNamesMap) {
     return '';
   }
 
   let breakpointName = '';
 
-  storybookAddonBreakpointNamesMap.forEach((entry: any) => {
+  storybookAddonBreakpointsNamesMap.forEach((entry: any) => {
     const key = entry[0]
     const value = parseInt(entry[1]);
 
@@ -68,7 +83,26 @@ const getBreakpointNameForWidth = (width: number) => {
   });
 
   return breakpointName;
-}
+};
+
+// --- USER OPTIONS
+const getUserOptions = (params: any) => {
+  if (!params) {
+    return;
+  }
+
+  if (!Object.keys(params).includes(config.optionKeys.main)) {
+    return;
+  }
+
+  const options = params[config.optionKeys.main];
+
+  // set debounce
+  if (Object.keys(options).includes(config.optionKeys.debounce)) {
+    storybookAddonBreakpointsDebounce = options[config.optionKeys.debounce];
+    console.log(storybookAddonBreakpointsDebounce);
+  }
+};
 
 // --- DOM NODES CREATION
 const createWrapper = (appendTo: Element) => {
@@ -132,7 +166,6 @@ const resizeCallback = (evt?: Event) => {
 
 const handleResize = debounce(
   resizeCallback,
-  200,
   false
 );
 
@@ -147,7 +180,8 @@ const removeEventListener = () => {
 // --- TOGGLING ADDON
 
 export const showAddon = (root: Element, params: any) => {
-  setBreakpointNames(params);
+  getUserBreakpointNames(params);
+  getUserOptions(params);
   createWrapper(root)
   createPixelElement();
   createNameElement();
