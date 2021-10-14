@@ -5,13 +5,22 @@
   "keywords": [
     "storybook-addons",
     "style",
-    "test"
+    "breakpoints",
+    "breakpoint",
+    "design system"
   ],
+  "homepage": "https://github.com/feerglas/storybook-addon-breakpoints",
+  "bugs": {
+    "url": "https://github.com/feerglas/storybook-addon-breakpoints/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/feerglas/storybook-addon-breakpoints"
   },
-  "author": "Yves Tscherry",
+  "author": {
+    "name": "Yves Tscherry",
+    "email": "feerglas@hotmail.com"
+  },
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -81,7 +90,7 @@
     "access": "public"
   },
   "storybook": {
-    "displayName": "Show Breakpoints in Storybook",
+    "displayName": "Breakpoints",
     "supportedFrameworks": [
       "react",
       "vue",
