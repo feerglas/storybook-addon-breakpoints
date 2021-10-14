@@ -1,0 +1,9 @@
+- style
+- auto releases??
+- icon
+- readme incl. screenshots
+- meta for storybook catalog
+- icon for package.json
+- activate dependabot
+- upper range? latest entry is 1500. we should make a placeholder here, like ~
+- borders of breakpoints: 0-500, 501-1000, 1001-1500, ...

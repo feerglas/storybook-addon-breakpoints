@@ -12,26 +12,24 @@ breakpointNames: {
 */
 
 import { config } from '../breakpoints';
+import { PARAM_KEY } from '../constants';
 
 const parameters: any = {};
 
 if (process.env.NODE_ENV === 'devonly') {
-
-  // create main options object
-  parameters[config.optionKeys.main] = {};
+  parameters[PARAM_KEY] = {};
 
   // set breakpoint names option
-  parameters[config.optionKeys.main][config.optionKeys.breakpointNames] = {
-    'small': '500',
-    'large': '1500',
-    'medium': '1000'
+  parameters[PARAM_KEY][config.optionKeys.breakpointNames] = {
+    small: '500',
+    large: '1500',
+    medium: '1000',
   };
 
   // set debounce option
-  parameters[config.optionKeys.main][config.optionKeys.debounce] = 0;
-
+  parameters[PARAM_KEY][config.optionKeys.debounce] = 0;
 }
 
 export {
-  parameters
+  parameters,
 };

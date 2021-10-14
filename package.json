@@ -5,13 +5,22 @@
   "keywords": [
     "storybook-addons",
     "style",
-    "test"
+    "breakpoints",
+    "breakpoint",
+    "design system"
   ],
+  "homepage": "https://github.com/feerglas/storybook-addon-breakpoints",
+  "bugs": {
+    "url": "https://github.com/feerglas/storybook-addon-breakpoints/issues"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/feerglas/storybook-addon-breakpoints"
   },
-  "author": "Yves Tscherry",
+  "author": {
+    "name": "Yves Tscherry",
+    "email": "feerglas@hotmail.com"
+  },
   "license": "MIT",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -31,12 +40,13 @@
     "prebuild": "yarn clean",
     "build": "concurrently \"yarn buildBabel\" \"yarn buildTsc\"",
     "build:watch": "concurrently \"yarn buildBabel:esm -- --watch\" \"yarn buildTsc -- --watch\"",
+    "lint": "eslint --ignore-path .gitignore --ext .js,.tsx,.ts .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "storybook": "start-storybook -p 6006",
     "start": "env NODE_ENV=devonly concurrently \"yarn build:watch\" \"yarn storybook -- --no-manager-cache --quiet\"",
     "build-storybook": "build-storybook",
     "prerelease": "zx scripts/prepublish-checks.mjs",
-    "release": "yarn build && auto shipit",
+    "release": "yarn lint && yarn build && auto shipit",
     "eject-ts": "zx scripts/eject-typescript.mjs"
   },
   "devDependencies": {
@@ -47,11 +57,19 @@
     "@babel/preset-typescript": "^7.13.0",
     "@storybook/addon-essentials": "^6.3.6",
     "@storybook/react": "^6.3.6",
+    "@typescript-eslint/eslint-plugin": "^5.0.0",
+    "@typescript-eslint/parser": "^5.0.0",
     "auto": "^10.3.0",
     "babel-loader": "^8.1.0",
     "boxen": "^5.0.1",
     "concurrently": "^6.2.0",
     "dedent": "^0.7.0",
+    "eslint": "^8.0.1",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.26.1",
+    "eslint-plugin-react-hooks": "^4.2.0",
     "prettier": "^2.3.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.1",
@@ -81,7 +99,7 @@
     "access": "public"
   },
   "storybook": {
-    "displayName": "Show Breakpoints in Storybook",
+    "displayName": "Breakpoints",
     "supportedFrameworks": [
       "react",
       "vue",

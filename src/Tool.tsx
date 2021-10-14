@@ -1,17 +1,17 @@
-import React, { useCallback } from "react";
-import { useGlobals } from "@storybook/api";
-import { Icons, IconButton } from "@storybook/components";
-import { TOOL_ID } from "./constants";
+import React, { useCallback } from 'react';
+import { useGlobals } from '@storybook/api';
+import { IconButton } from '@storybook/components';
+import BreakpointIcon from './components/BreakpointIcon';
+import { TOOL_ID } from './constants';
 
 export const Tool = () => {
   const [{ breakpointsActive }, updateGlobals] = useGlobals();
 
   const toggleBreakpoints = useCallback(
-    () =>
-      updateGlobals({
-        breakpointsActive: !breakpointsActive,
-      }),
-    [breakpointsActive]
+    () => updateGlobals({
+      breakpointsActive: !breakpointsActive,
+    }),
+    [breakpointsActive],
   );
 
   return (
@@ -21,11 +21,8 @@ export const Tool = () => {
       title="Display Breakpoints"
       onClick={toggleBreakpoints}
     >
-      {/*
-        Checkout https://next--storybookjs.netlify.app/official-storybook/?path=/story/basics-icon--labels
-        for the full list of icons
-      */}
-      <Icons icon="browser" />
+
+      <BreakpointIcon />
     </IconButton>
   );
 };
