@@ -1,10 +1,10 @@
-import { StoryFn as StoryFunction, StoryContext } from "@storybook/addons";
-import { useEffect, useGlobals } from "@storybook/addons";
+import { StoryFn as StoryFunction, StoryContext } from '@storybook/addons';
+import { useEffect, useGlobals } from '@storybook/addons';
 
 export const withGlobals = (StoryFn: StoryFunction, context: StoryContext) => {
-  const [{ myAddon }] = useGlobals();
+  const [{ breakpointsActive }] = useGlobals();
   // Is the addon being used in the docs panel
-  const isInDocs = context.viewMode === "docs";
+  const isInDocs = context.viewMode === 'docs';
 
   useEffect(() => {
     // Execute your side effect here
@@ -14,31 +14,67 @@ export const withGlobals = (StoryFn: StoryFunction, context: StoryContext) => {
       : `#root`;
 
     displayToolState(selectorId, {
-      myAddon,
+      breakpointsActive,
       isInDocs,
     });
-  }, [myAddon]);
+  }, [breakpointsActive]);
 
   return StoryFn();
 };
 
-function displayToolState(selector: string, state: any) {
-  const rootElement = document.querySelector(selector);
-  let preElement = rootElement.querySelector("pre");
+const showAddon = (root: Element, wrapper: HTMLDivElement) => {
+  let pixelElement: HTMLSpanElement;
+  let nameElement: HTMLSpanElement;
 
-  if (!preElement) {
-    preElement = document.createElement("pre");
-    preElement.style.setProperty("margin-top", "2rem");
-    preElement.style.setProperty("padding", "1rem");
-    preElement.style.setProperty("background-color", "#eee");
-    preElement.style.setProperty("border-radius", "3px");
-    preElement.style.setProperty("max-width", "600px");
-    rootElement.appendChild(preElement);
+  if (!wrapper) {
+    wrapper = document.createElement('div');
+    wrapper.classList.add('storybook-addon-breakpoints');
+    wrapper.style.setProperty('position', 'absolute');
+    wrapper.style.setProperty('margin', '0');
+    wrapper.style.setProperty('top', 'auto');
+    wrapper.style.setProperty('right', '0');
+    wrapper.style.setProperty('bottom', '0');
+    wrapper.style.setProperty('left', 'auto');
+    wrapper.style.setProperty('width', '10rem');
+    wrapper.style.setProperty('background', 'green');
+    root.appendChild(wrapper);
   }
 
-  preElement.innerText = `This snippet is injected by the withGlobals decorator.
-It updates as the user interacts with the ⚡ tool in the toolbar above.
+  pixelElement = wrapper.querySelector('span.storybook-addon-breakpoints__pixel');
 
-${JSON.stringify(state, null, 2)}
-`;
+  if (!pixelElement) {
+    pixelElement = document.createElement('span');
+    pixelElement.classList.add('storybook-addon-breakpoints__pixel');
+    wrapper.appendChild(pixelElement);
+  }
+
+  nameElement = wrapper.querySelector('span.storybook-addon-breakpoints__name');
+
+  if (!nameElement) {
+    nameElement = document.createElement('span');
+    nameElement.classList.add('storybook-addon-breakpoints__name');
+    wrapper.appendChild(nameElement);
+  }
+
+  pixelElement.innerText = '1024px';
+  nameElement.innerText = 'breakpoint-small-max';
+}
+
+const hideAddon = (wrapper: HTMLDivElement) => {
+  if (wrapper) {
+    wrapper.remove();
+  }
+}
+
+const displayToolState = (selector: string, state: any) => {
+  const addonIsActive = state.breakpointsActive;
+  const rootElement = document.querySelector(selector);
+  let wrapperElement: HTMLDivElement = rootElement.querySelector('div.storybook-addon-breakpoints');
+
+  if (addonIsActive) {
+    showAddon(rootElement, wrapperElement);
+  } else {
+    hideAddon(wrapperElement);
+  }
+
 }
