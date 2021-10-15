@@ -67,7 +67,7 @@ const getUserBreakpointNames = (params: any) => {
   const nameMap = options[config.optionKeys.breakpointNames];
   storybookAddonBreakpointsNamesMap = Object
     .entries(nameMap)
-    .sort((a:[string, string], b:[string, string]) => (parseInt(b[1], 10) - parseInt(a[1], 10)));
+    .sort((a:[string, string], b:[string, string]) => (parseInt(a[1], 10) - parseInt(b[1], 10)));
 };
 
 const getBreakpointNameForWidth = (width: number) => {
@@ -81,7 +81,7 @@ const getBreakpointNameForWidth = (width: number) => {
     const key = entry[0];
     const value = parseInt(entry[1], 10);
 
-    if (width <= value) {
+    if (width >= value) {
       breakpointName = key;
     }
   });
