@@ -1,2 +1,0 @@
-- icon for package.json
-- upper range? latest entry is 1500. we should make a placeholder here, like ~
