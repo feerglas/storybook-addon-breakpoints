@@ -1,3 +1,15 @@
+# [1.0.0](https://github.com/feerglas/storybook-addon-breakpoints/compare/v0.0.7...v1.0.0) (2021-10-15)
+
+
+### Features
+
+* reverse logic for breakpoint ([f2142f6](https://github.com/feerglas/storybook-addon-breakpoints/commit/f2142f69623a40999a6046dd16305bea23e04446))
+
+
+### BREAKING CHANGES
+
+* the defined breakpoints represent now the lower limit of a breakpoint
+
 ## [0.0.7](https://github.com/feerglas/storybook-addon-breakpoints/compare/v0.0.6...v0.0.7) (2021-10-14)
 
 
