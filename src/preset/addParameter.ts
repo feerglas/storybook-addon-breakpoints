@@ -4,9 +4,9 @@ Example options:
 breakpoints: {
   debounceTimeout: 200,
   breakpointNames: {
-    'small': '500',
-    'large': '1500',
-    'medium': '1000'
+    'small': '0',
+    'medium': '500',
+    'large': '1000',
   }
 }
 */
@@ -21,9 +21,9 @@ if (process.env.NODE_ENV === 'devonly') {
 
   // set breakpoint names option
   parameters[PARAM_KEY][config.optionKeys.breakpointNames] = {
-    small: '500',
-    large: '1500',
-    medium: '1000',
+    small: '0',
+    large: '1000',
+    medium: '500',
   };
 
   // set debounce option
