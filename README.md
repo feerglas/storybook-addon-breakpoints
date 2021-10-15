@@ -38,9 +38,9 @@ export default {
   parameters: {
     breakpoints: {
       breakpointNames: {
-        'small': '500',
-        'medium': '1000',
-        'large': '1500'
+        'small': '0',
+        'medium': '500',
+        'large': '1000'
       }
     }
   }
@@ -53,18 +53,18 @@ To configure the addon for all stories, set the `breakpoints` parameter in [`.st
 export const parameters = {
   breakpoints: {
     breakpointNames: {
-      'small': '500',
-      'medium': '1000',
-      'large': '1500'
+      'small': '0',
+      'medium': '500',
+      'large': '1000'
     }
   }
 };
 ```
 
-The keys of the object `breakpointNames` are the names that we show in the overlay. The corresponding values represent the upper limit of each breakpoint. In the example above, this means the following:
-- small breakpoint: from 0 to 500 pixels
-- medium breakpoint: from 501 to 1000 pixels
-- large breakpoint: from 1001 to 1500 pixels
+The keys of the object `breakpointNames` are the names that we show in the overlay. The corresponding values represent the lower starting point of each breakpoint. In the example above, this means the following:
+- small breakpoint: from 0 to 499 pixels
+- medium breakpoint: from 500 to 999 pixels
+- large breakpoint: from 1000 pixels on
 
 ### Debouncing
 
