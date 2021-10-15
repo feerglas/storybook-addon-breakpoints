@@ -24,7 +24,7 @@ module.exports = {
 
 ### Default configuration
 
-Without any configuration, the addon shows an overlay with the current width of the Storbook component view.
+Without any configuration, the addon shows an overlay with the current width of the Storybook component view.
 
 ### Breakpoints
 
@@ -61,7 +61,7 @@ export const parameters = {
 };
 ```
 
-The keys of the object `breakpointNames` are the names that we show in the overlay. The corresponding values are represent the upper limit of each breakpoint. For the example above, this means the following:
+The keys of the object `breakpointNames` are the names that we show in the overlay. The corresponding values represent the upper limit of each breakpoint. In the example above, this means the following:
 - small breakpoint: from 0 to 500 pixels
 - medium breakpoint: from 501 to 1000 pixels
 - large breakpoint: from 1001 to 1500 pixels
