@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { useGlobals } from '@storybook/api';
+import { useGlobals } from '@storybook/manager-api';
 import { IconButton } from '@storybook/components';
 import BreakpointIcon from './components/BreakpointIcon';
 import { TOOL_ID } from './constants';

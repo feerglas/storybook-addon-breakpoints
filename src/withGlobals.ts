@@ -1,9 +1,5 @@
-import {
-  StoryFn as StoryFunction,
-  StoryContext,
-  useEffect,
-  useGlobals,
-} from '@storybook/addons';
+import { useEffect, useGlobals } from '@storybook/preview-api';
+import type { PartialStoryFn as StoryFunction, StoryContext } from '@storybook/types';
 import { showAddon, hideAddon } from './breakpoints';
 
 const displayToolState = (selector: string, state: any, params: any) => {
@@ -23,7 +19,7 @@ export const withGlobals = (StoryFn: StoryFunction, context: StoryContext) => {
   useEffect(() => {
     const selectorId = isInDocs
       ? `#anchor--${context.id} .docs-story`
-      : '#root';
+      : '#storybook-root';
 
     displayToolState(selectorId, {
       breakpointsActive,
